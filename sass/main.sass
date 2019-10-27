@@ -16,25 +16,50 @@ input, textarea
 	&:required:valid
 		border-color: green
 
+a
+	color: $text
+
 body
-	font-size: 16px
+	font-size: 14px
 	min-width: 320px
 	position: relative
 	line-height: 1.65
-	font-family: 'Roboto', sans-serif
+	font-family: 'BlissPro', sans-serif
 	overflow-x: hidden
 	color: $text
+
+label
+	display: flex
+	flex-direction: column
+	font-size: 20px
+	margin: 10px 0px
+	font-weight: 700
+	input
+		margin: 10px 0px
+		border: 1px solid #ADB8C7
+		box-sizing: border-box
+		border-radius: 4px
+		height: 50px
+		padding: 10px
+		font-size: 16px
+		font-weight: 300
+		color: $text
+		font-family: 'BlissPro', sans-serif
+		&:placeholder
+			color: #ADB8C7
+		&:focus
+			border: 1px solid $text
 
 // Custom Sass / Remove before use
 
 .container
 	max-width: 700px
 	padding:
-		right: $gutter/2
-		left: $gutter/2
+	right: $gutter/2
+	left: $gutter/2
 	margin:
-		left: auto
-		right: auto
+	left: auto
+	right: auto
 
 .img-responsive
 	display: block
@@ -54,9 +79,207 @@ body
 		display: block
 		> div
 			padding: $gutter/2 0
-	
+
 .example-img
 	width: 100%
 
 .parent // Lazy Load Placeholder Generator: https://webdesign-master.ru/services/lazy/
 	background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
+
+.wrapper
+	max-width: 1200px
+	min-width: 320px
+	margin: 0 auto
+
+.logo
+	margin-right: 30px
+	h2
+		//color: #fff
+		margin: 0px
+		font-size: 20px
+	p
+		margin: 0px
+
+.href
+	width: 800px
+	margin: 60px 0px 30px
+.adsWrapper
+	margin: 30px 0px 45px
+.menu
+	&_item
+		font-size: 26px
+		padding: 20px 40px 20px 0px
+		font-weight: 300
+		&:hover
+			text-decoration: none
+			color: $accent
+		&-active
+			color: $accent!important
+
+.yandexWrapper
+	display: none
+	justify-content: space-between
+	margin: 10px 0px
+
+.btn
+	border: 1px solid #2B2E4A
+	box-sizing: border-box
+	border-radius: 4px
+	flex-grow: 1
+	padding: 18px 0px
+	display: block
+	margin-right: 20px
+	text-align: center
+	transition: background, transform 0.2s ease
+	background: #fff
+	&:hover
+		text-decoration: none
+		color: #ffffff
+		background: $accent
+		border: 1px solid $accent
+		transform: translateY(-1px)
+	&-active
+		background: $accent
+		border: 1px solid $accent
+		transform: translateY(-1px)
+		color: #fff
+
+.tab-active
+	display: flex
+
+.utmWrapper
+	display: flex
+	justify-content: space-between
+	margin: 20px 0px
+	label
+		margin-right: 20px
+		&:nth-child(3)
+			flex-grow: 3
+.resultWrapper
+	font-weight: bold
+	font-size: 20px
+	line-height: 24px
+	margin: 90px 0px
+	&:hover
+		cursor: pointer
+		.copy
+			color: $accent
+			text-decoration: none
+			svg path
+				fill: $accent
+
+.copy
+	font-size: 18px
+	font-weight: 300
+	line-height: 18px
+	display: flex
+	margin: 20px 0px
+	align-items: center
+	transition: all 0.2s ease
+	svg path
+		transition: all 0.2s ease
+	span
+		padding-right: 5px
+	&:hover
+		color: $accent
+		text-decoration: none
+		svg path
+			fill: $accent
+
+.copyDone
+	font-size: 10px
+	color: $text
+	// background: #ffffff
+	// border: 1px solid $text
+	padding: 5px
+	border-radius: 3px
+	margin-left: 10px
+	opacity: 0
+	transition: all 0.7s ease-in-out
+
+.header
+	display: flex
+	//justify-content: space-between
+	margin-top: 10px
+	align-items: flex-end
+
+.left_side
+	.news
+		position: relative
+		border-bottom: 1px dashed transparentize($text,0.8 )
+		margin-right: 20px
+		&:hover
+			text-decoration: none
+			color: $accent
+
+	ol
+		position: absolute
+		margin: 0px
+		font-size: 14px
+		font-weight: 300
+		width: 340px
+		opacity: 0
+		transform: translateY(40px)
+		background: $text
+		color: #ffffff
+		padding: 20px
+		padding-left: 30px
+		border-radius: 6px
+		box-shadow: 0 20px 25px rgba(0,0,0,.15)
+		transition: all 0.2s ease-in-out
+		z-index: 10
+		display: none
+		a
+			color: #fff
+			transition: all 0.2s ease-in-out
+			border-bottom: 1px solid transparentize(#fff,0.8 )
+			&:hover
+				color: $accent
+				border-bottom: 1px solid transparentize($accent,0.8 )
+				text-decoration: none
+	.ol_visable
+		opacity: 1
+		transform: translateY(0px)
+		display: block
+		animation: opacityBlockTop 0.5s ease-in-out
+		@keyframes opacityBlockTop
+			0%
+				opacity: 0
+			99%
+				opacity: 1
+
+			100%
+				display: block
+
+.donation
+	transition: all 0.2s ease-in-out
+	border-bottom: 1px solid transparentize($text,0.8 )
+	&:hover
+		color: $accent
+		border-bottom: 1px solid transparentize($accent,0.8 )
+		text-decoration: none
+
+.black_theme
+	background: $text
+	color: #fff
+	svg path
+		fill: #fff
+	a
+		color: #fff
+	.btn
+		color: $text
+		&:hover
+			color: #fff
+		&-active
+			color: #fff
+	.left_side
+		.news
+			border-bottom: 1px dashed transparentize(#ffffff,0.8 )
+		ol
+			background: #fff
+			color: $text
+			li a
+				color: $text
+				border-bottom: 1px solid transparentize($text,0.8 )
+	.donation
+		border-bottom: 1px solid transparentize(#ffffff,0.8 )
