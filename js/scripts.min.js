@@ -172,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     content.classList.add("tab-active"); // 4
   } catch {
     document.querySelector('.default').classList.add('menu_item-active')
+    document.querySelector('.fillter[data-tab="yandex"]').classList.add('tab-active')
   }
 
 
