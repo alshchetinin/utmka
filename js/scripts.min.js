@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   var $allInnput = document.querySelectorAll("input");
   var $href = document.querySelector("#href");
   var $result = document.querySelector("#result");
@@ -8,15 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var $menu_item = document.querySelectorAll(".menu_item");
   var $theme = document.querySelector("#change_theme");
   var $body = document.querySelector("body");
-
-  //Кнопки Yandex
-  var $yandex_search = document.querySelector("#yandexSearch");
-  var $yandex_context = document.querySelector("#yandexContext");
-  var $yandex_smartBanner = document.querySelector("#yandexSmartBanner");
-  var $yandex_searchBanner = document.querySelector("#yandexSearchBanner");
-  var $yandex_Media = document.querySelector("#yandexMedia");
-  var $yandex_graphics = document.querySelector("#yandexGraphics");
-  var $yandex_mainPage = document.querySelector("#yandexMainPageBanner");
 
   var $utm_source = document.querySelector("#utm_source");
   var $utm_medium = document.querySelector("#utm_medium");
@@ -100,14 +91,33 @@ document.addEventListener("DOMContentLoaded", function () {
       utm_campaign: "{campaignid}",
       utm_content: "{creative}",
       utm_term: "{keyword}"
+    },
+    vk: {
+      utm_source: "vk",
+      utm_medium: "social",
+      utm_campaign: "название поста"
+    },
+    ok: {
+      utm_source: "ok",
+      utm_medium: "social",
+      utm_campaign: "название поста"
+    },
+    inst: {
+      utm_source: "inst",
+      utm_medium: "social",
+      utm_campaign: "название поста"
+    },
+    fb: {
+      utm_source: "fb",
+      utm_medium: "social",
+      utm_campaign: "название поста"
     }
   };
 
-
-  console.log(objUtm)
+  console.log(objUtm);
   handlerActive($btn, "btn-active");
 
-  $resultWrapper.addEventListener("click", function (event) {
+  $resultWrapper.addEventListener("click", function(event) {
     copyClipboard($result);
     event.preventDefault();
   });
@@ -120,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#change_theme img").src = "img/@2x/light.png";
   }
 
-  $theme.addEventListener("click", function (event) {
+  $theme.addEventListener("click", function(event) {
     $body.classList.toggle("black_theme");
     $body.style.transition = "all 0.5s ease-in-out";
     event.preventDefault();
@@ -137,62 +147,85 @@ document.addEventListener("DOMContentLoaded", function () {
   //Вывод результат
   for (i = 0; i < $allInnput.length; i++) {
     transliterate(this.value, { replace: { " ": "-" } });
-    $allInnput[i].addEventListener("input", function () {
-
+    $allInnput[i].addEventListener("input", function() {
       result();
     });
   }
   $href.value = localStorage.getItem("href");
   // Табы
-  var jsTriggers = document.querySelectorAll(".menu_item"),
-    jsContents = document.querySelectorAll(".fillter");
-  jsTriggers.forEach(function (trigger) {
-    trigger.addEventListener("click", function (event) {
-      localStorage.setItem('idMenu', this.getAttribute("data-tab"))
-      var idLocal = localStorage.getItem('idMenu')
-      var content = document.querySelector('.fillter[data-tab="' + idLocal + '"]')
+  var jsTriggers = document.querySelectorAll(".menu_item");
+  jsTriggers.forEach(function(trigger) {
+    trigger.addEventListener("click", function(event) {
+      localStorage.setItem("idMenu", this.getAttribute("data-tab"));
+      var idLocal = localStorage.getItem("idMenu");
+      var content = document.querySelector(
+        '.fillter[data-tab="' + idLocal + '"]'
+      );
       var activeContent = document.querySelector(".tab-active");
-      var activeTrigger = document.querySelector('.menu_item-active')
-      activeTrigger.classList.remove('menu_item-active'); // 1
-      trigger.classList.add('menu_item-active'); // 2
+      var activeTrigger = document.querySelector(".menu_item-active");
+      activeTrigger.classList.remove("menu_item-active"); // 1
+      trigger.classList.add("menu_item-active"); // 2
       activeContent.classList.remove("tab-active"); // 3
       content.classList.add("tab-active"); // 4
       event.preventDefault();
+      //СММ
+
+      if (
+        document
+          .querySelector('.fillter[data-tab="smm"]')
+          .classList.contains("tab-active") == true
+      ) {
+        document.querySelector(".no-smm").style.display = "none";
+        document.querySelector(".no-smm1").style.display = "none";
+      } else {
+        document.querySelector(".no-smm").style.display = "flex";
+        document.querySelector(".no-smm1").style.display = "flex";
+      }
     });
   });
 
   try {
     var activeContent = document.querySelector(".tab-active");
     activeContent.classList.remove("tab-active"); // 3
-    var idLocal = localStorage.getItem('idMenu')
-    var content = document.querySelector('.fillter[data-tab="' + idLocal + '"]')
-    var activeTrigger = document.querySelector('.menu_item-active')
-    activeTrigger.classList.remove('menu_item-active'); // 1
-    document.querySelector('.menu_item[data-tab="' + idLocal + '"]').classList.add('menu_item-active')
-    content.classList.add("tab-active"); // 4
+    var idLocal = localStorage.getItem("idMenu");
+    var content = document.querySelector(
+      '.fillter[data-tab="' + idLocal + '"]'
+    );
+    var activeTrigger = document.querySelector(".menu_item-active");
+    activeTrigger.classList.remove("menu_item-active"); // 1
+    document
+      .querySelector('.menu_item[data-tab="' + idLocal + '"]')
+      .classList.add("menu_item-active");
+    content.classList.add("tab-active");
+    if (idLocal === "smm") {
+      document.querySelector(".no-smm").style.display = "none";
+      document.querySelector(".no-smm1").style.display = "none";
+    } else {
+      document.querySelector(".no-smm").style.display = "flex";
+      document.querySelector(".no-smm1").style.display = "flex";
+    }
   } catch {
-    document.querySelector('.default').classList.add('menu_item-active')
-    document.querySelector('.fillter[data-tab="yandex"]').classList.add('tab-active')
+    document.querySelector(".default").classList.add("menu_item-active");
+    document
+      .querySelector('.fillter[data-tab="yandex"]')
+      .classList.add("tab-active");
   }
 
-
-
   //Что нового
-  document.querySelector('.news').addEventListener('click', function (event) {
-    event.preventDefault()
-    document.querySelector('.ol').classList.toggle('ol_visable')
+  document.querySelector(".news").addEventListener("click", function(event) {
+    event.preventDefault();
+    document.querySelector(".ol").classList.toggle("ol_visable");
     if (this.innerHTML === "Что нового?") {
       this.innerHTML = "Скрыть";
     } else {
       this.innerHTML = "Что нового?";
     }
-  })
-
+  });
 
   //Добавление активного класса
   function handlerActive($el, activeClass) {
     for (var i = 0; i < $el.length; i++) {
-      $el[i].addEventListener("click", function (event) {
+      $el[i].addEventListener("click", function(event) {
         for (var i = 0; i < $el.length; i++) {
           $el[i].classList.remove(activeClass);
         }
@@ -203,35 +236,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  $btn.forEach(function (click) {
-    click.addEventListener('click', function (even) {
-      createObjUtm()
-      event.preventDefault()
-    })
-  })
+  $btn.forEach(function(click) {
+    click.addEventListener("click", function(even) {
+      createObjUtm();
+      event.preventDefault();
+    });
+  });
 
-  createObjUtm()
+  createObjUtm();
 
   function createObjUtm() {
-    var utmLocal = localStorage.getItem('ativeBtn')
+    var utmLocal = localStorage.getItem("ativeBtn");
     try {
-      document.querySelector("#" + utmLocal).classList.add('btn-active')
-      var utmObj = objUtm[utmLocal]
-      var utmObjSourse = objUtm[utmLocal].utm_source
-      var utmObjMedium = objUtm[utmLocal].utm_medium
-      var utmObjCampaing = objUtm[utmLocal].utm_campaign
-      var utmObjContent = objUtm[utmLocal].utm_content
-      var utmObjTrem = objUtm[utmLocal].utm_term
+      document.querySelector("#" + utmLocal).classList.add("btn-active");
+      var utmObj = objUtm[utmLocal];
+      var utmObjSourse = objUtm[utmLocal].utm_source;
+      var utmObjMedium = objUtm[utmLocal].utm_medium;
+      var utmObjCampaing = objUtm[utmLocal].utm_campaign;
+      var utmObjContent = objUtm[utmLocal].utm_content;
+      var utmObjTrem = objUtm[utmLocal].utm_term;
 
-      creatUtm(utmObjSourse, utmObjMedium, utmObjCampaing, utmObjContent, utmObjTrem)
-    } catch {
-
-    }
-
-
-
-
-
+      creatUtm(
+        utmObjSourse,
+        utmObjMedium,
+        utmObjCampaing,
+        utmObjContent,
+        utmObjTrem
+      );
+    } catch {}
   }
 
   function creatUtm(
@@ -254,20 +286,37 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("href", $href.value);
     utm_source = transliterate($utm_source.value, { replace: { " ": "-" } });
     utm_medium = transliterate($utm_medium.value, { replace: { " ": "-" } });
-    utm_campaign = transliterate($utm_campaign.value, { replace: { " ": "-" } });
+    utm_campaign = transliterate($utm_campaign.value, {
+      replace: { " ": "-" }
+    });
     utm_content = transliterate($utm_content.value, { replace: { " ": "-" } });
     utm_term = transliterate($utm_term.value, { replace: { " ": "-" } });
-    var utm =
-      "?utm_source=" +
-      utm_source +
-      "&utm_medium=" +
-      utm_medium +
-      "&utm_campaign=" +
-      utm_campaign +
-      "&utm_content=" +
-      utm_content +
-      "&utm_term=" +
-      utm_term;
+
+    if (
+      document
+        .querySelector('.fillter[data-tab="smm"]')
+        .classList.contains("tab-active") == true
+    ) {
+      var utm =
+        "?utm_source=" +
+        utm_source +
+        "&utm_medium=" +
+        utm_medium +
+        "&utm_campaign=" +
+        utm_campaign;
+    } else {
+      var utm =
+        "?utm_source=" +
+        utm_source +
+        "&utm_medium=" +
+        utm_medium +
+        "&utm_campaign=" +
+        utm_campaign +
+        "&utm_content=" +
+        utm_content +
+        "&utm_term=" +
+        utm_term;
+    }
 
     if (hrefValue.indexOf("?") > -1) {
       //yandexADS.replace("?", "&");
