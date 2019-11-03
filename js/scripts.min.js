@@ -247,6 +247,8 @@ document.addEventListener("DOMContentLoaded", function() {
     click.addEventListener("click", function(even) {
       createObjUtm();
       event.preventDefault();
+      vkcc.style.display = "block";
+      $vkccResult.style.display = "none";
     });
   });
 
@@ -372,6 +374,7 @@ document.addEventListener("DOMContentLoaded", function() {
           $vkccResult.innerHTML = response.response.short_url;
           console.log(response.response.short_url);
           vkcc.style.display = "none";
+          $vkccResult.style.display = "block";
         } catch {
           vkcc.innerHTML =
             "Что-то пошло не так, возможно не выполнен логин в ВК в бразуере";
@@ -380,4 +383,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     );
   }
+
+  $href.addEventListener("input", function() {
+    vkcc.style.display = "block";
+    $vkccResult.style.display = "none";
+  });
 });
