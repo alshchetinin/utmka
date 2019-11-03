@@ -54,6 +54,22 @@
   </head>
 
   <body class="">
+    <div id="vk_api_transport"></div>
+    <script type="text/javascript">
+      window.vkAsyncInit = function() {
+        VK.init({
+          apiId: 7193980
+        });
+      };
+
+      setTimeout(function() {
+        var el = document.createElement("script");
+        el.type = "text/javascript";
+        el.src = "https://vk.com/js/api/openapi.js?162";
+        el.async = true;
+        document.getElementById("vk_api_transport").appendChild(el);
+      }, 0);
+    </script>
     <div class="wrapper ">
       <div class="header">
         <div class="logo">
@@ -87,6 +103,7 @@
               >
             </li>
             <li>Можно создавать ютмки для соц.сетей</li>
+            <li>Можно сокрощать готовые ссылки через сервис vk.cc</li>
           </ol>
           <a
             href="https://money.yandex.ru/to/410012702445996"
@@ -187,7 +204,16 @@
             ><img src="img/@2x/ok.png" alt="" width="22px"/></span
         ></a>
       </div>
+      <div class="vkcc_wrapper">
+        <p class="vkcc_result" title="Скопировать"></p>
+        <a href="" id="vkcc">Сократить готовую ссылку через vk.cc</a>
+      </div>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/transliteration@2.1.7/dist/browser/bundle.umd.min.js"></script>
     <script src="js/scripts.min.js"></script>
   </body>

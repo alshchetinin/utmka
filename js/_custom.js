@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var $href = document.querySelector("#href");
   var $result = document.querySelector("#result");
   var $resultWrapper = document.querySelector(".resultWrapper");
+  var $vkccResult = document.querySelector(".vkcc_result");
   var $btnCopy = document.querySelector(".copy");
   var $btn = document.querySelectorAll(".btn");
   var $menu_item = document.querySelectorAll(".menu_item");
@@ -117,8 +118,13 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log(objUtm);
   handlerActive($btn, "btn-active");
 
-  $resultWrapper.addEventListener("click", function(event) {
+  $result.addEventListener("click", function(event) {
     copyClipboard($result);
+    event.preventDefault();
+  });
+
+  $vkccResult.addEventListener("click", function(event) {
+    copyClipboard($vkccResult);
     event.preventDefault();
   });
 
@@ -152,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   $href.value = localStorage.getItem("href");
+
   // Табы
   var jsTriggers = document.querySelectorAll(".menu_item");
   jsTriggers.forEach(function(trigger) {
@@ -339,5 +346,31 @@ document.addEventListener("DOMContentLoaded", function() {
     function hide() {
       document.querySelector(".copyDone").style.opacity = "0";
     }
+  }
+
+  //vk cc
+  const token =
+    "38b49d7d38b49d7d38b49d7df538d95801338b438b49d7d650a3d3ce42566e7e243febe";
+  const v = "5.103";
+  const metod = "utils.getShortLink";
+
+  const vkcc = document.querySelector("#vkcc");
+  vkcc.addEventListener("click", href_cut);
+
+  function href_cut() {
+    event.preventDefault();
+    const $result_utm = $result.textContent;
+    //const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const url = `https://api.vk.com/method/${metod}?url=${$result_utm}&access_token=${token}&v=${v}`;
+    console.log($result_utm);
+    const vkccResponce = VK.Api.call(
+      metod,
+      { url: $result_utm, v: "5.73" },
+      function(response) {
+        $vkccResult.innerHTML = response.response.short_url;
+        console.log(response.response.short_url);
+      }
+    );
+    this.style.display = "none";
   }
 });

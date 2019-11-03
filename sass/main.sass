@@ -163,11 +163,40 @@ label
 	margin: 90px 0px
 	&:hover
 		cursor: pointer
+		color: $accent
 		.copy
 			color: $accent
 			text-decoration: none
 			svg path
 				fill: $accent
+
+.vkcc_result
+	position: relative
+	&::before
+		content: "Скопировать"
+		position: absolute
+		top: -23px
+		left: 0
+		width: 70px
+		height: 20px
+		border-radius: 6px
+		background: $text
+		color: #fff
+		text-align: center
+		font-size: 10px
+		opacity: 0
+		transition: all 0.3s ease-in-out
+	&:hover
+		cursor: pointer
+		color: $accent
+		&::before
+			opacity: 1
+
+#vkcc
+	border-bottom: 1px dashed transparentize($text,0.8 )
+	&:hover
+		color: $accent
+		text-decoration: none
 
 .copy
 	font-size: 18px
@@ -284,6 +313,10 @@ label
 				border-bottom: 1px solid transparentize($text,0.8 )
 	.donation
 		border-bottom: 1px solid transparentize(#ffffff,0.8 )
+	.vkcc_result
+		&::before
+			background: #ffffff
+			color: $text
 
 //Мобильная версия
 @media screen and (max-width: 700px)
