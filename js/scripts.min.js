@@ -363,14 +363,21 @@ document.addEventListener("DOMContentLoaded", function() {
     //const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = `https://api.vk.com/method/${metod}?url=${$result_utm}&access_token=${token}&v=${v}`;
     console.log($result_utm);
+
     const vkccResponce = VK.Api.call(
       metod,
       { url: $result_utm, v: "5.73" },
       function(response) {
-        $vkccResult.innerHTML = response.response.short_url;
-        console.log(response.response.short_url);
+        try {
+          $vkccResult.innerHTML = response.response.short_url;
+          console.log(response.response.short_url);
+          vkcc.style.display = "none";
+        } catch {
+          vkcc.innerHTML =
+            "Что-то пошло не так, возможно не выполнен логин в ВК в бразуере";
+          vkcc.style.color = "#FF403C";
+        }
       }
     );
-    this.style.display = "none";
   }
 });
