@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
     click.addEventListener("click", function(even) {
       createObjUtm();
       event.preventDefault();
-      vkcc.style.display = "block";
+      vkcc.style.display = "inline-block";
       $vkccResult.style.display = "none";
     });
   });
@@ -385,7 +385,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   $href.addEventListener("input", function() {
-    vkcc.style.display = "block";
+    vkcc.style.display = "inline-block";
     $vkccResult.style.display = "none";
   });
 });
