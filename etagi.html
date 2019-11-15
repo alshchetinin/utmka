@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Ютмка 2.0</title>
+    <meta name="description" content="Startup HTML template OptimizedHTML 5" />
+
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="icon" href="img/favicon.png" />
+    <meta property="og:image" content="img/@1x/preview.jpg" />
+
+    <link rel="stylesheet" href="css/styles.min.css" />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function(m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function() {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
+
+      ym(55959334, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+      });
+    </script>
+    <noscript>
+      <div>
+        <img
+          src="https://mc.yandex.ru/watch/55959334"
+          style="position:absolute; left:-9999px;"
+          alt=""
+        />
+      </div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+  </head>
+
+  <body class="">
+    <div id="vk_api_transport"></div>
+    <script type="text/javascript">
+      window.vkAsyncInit = function() {
+        VK.init({
+          apiId: 7193980
+        });
+      };
+
+      setTimeout(function() {
+        var el = document.createElement("script");
+        el.type = "text/javascript";
+        el.src = "https://vk.com/js/api/openapi.js?162";
+        el.async = true;
+        document.getElementById("vk_api_transport").appendChild(el);
+      }, 0);
+    </script>
+    <div class="wrapper ">
+      <div class="header">
+        <div class="logo">
+          <h2>
+            Ютмка 2.0
+            <a href="" id="change_theme"><img src="" alt="" width="28px"/></a>
+          </h2>
+          <p>Простой сервис для подставновки ютм меток</p>
+        </div>
+        <div class="left_side">
+          <a href="" class="news">Что нового?</a>
+          <ol class="ol">
+            <li>
+              Появилась темная и светлая тема, переключить можно нажав по
+              смайлику
+            </li>
+            <li>Можно менять значения параметров в ютм метках</li>
+            <li>
+              Появилась транслитерация символов. Например если ввести в любое
+              поле параметров «Привет» в ютмке выведется «Privet»так же пробел
+              заменится на дефис
+            </li>
+            <li>Теперь браузер запоминает последнюю ссылку</li>
+            <li>Появилась возможность быстро скопировать ссылку</li>
+            <li>
+              Самая важная фитча: Теперь можно
+              <a
+                href="https://money.yandex.ru/to/410012702445996"
+                target="_blank"
+                >закинуть денег мне на кофе</a
+              >
+            </li>
+            <li>Можно создавать ютмки для соц.сетей</li>
+            <li>
+              Можно сокрощать готовые ссылки через сервис vk.cc. Чтобы работало
+              нужно быть авторизованным в ВК в браузере
+            </li>
+          </ol>
+          <a
+            href="https://money.yandex.ru/to/410012702445996"
+            class="donation"
+            target="_blank"
+          >
+            Закинуть денег на кофе</a
+          >
+        </div>
+      </div>
+
+      <div class="href">
+        <label for="href"
+          >Ссылка
+          <input type="text" id="href" placeholder="vk.com" />
+        </label>
+      </div>
+
+      <div class="adsWrapper">
+        <div class="menu">
+          <a
+            href=""
+            class="menu_item menu_item-active default"
+            data-tab="yandex"
+            >Яндекс</a
+          >
+          <a href="" class="menu_item " data-tab="google">Google</a>
+          <a href="" class="menu_item " data-tab="smm">Социальные сети</a>
+        </div>
+        <div class="yandexWrapper fillter tab-active" data-tab="yandex">
+          <a href="" class="btn" id="yandexSearch">Поиск</a>
+          <a href="" class="btn" id="yandexContext">РСЯ</a>
+          <a href="" class="btn" id="yandexSmartBanner">Смарт баннеры</a>
+          <a href="" class="btn" id="yandexSearchBanner">Баннер на поиске</a>
+          <a href="" class="btn" id="yandexMedia">Медийная реклама</a>
+          <a href="" class="btn" id="yandexGraphics">Графические баннера</a>
+          <a href="" class="btn" id="yandexMainPageBanner">Баннер на главной</a>
+        </div>
+        <div class="yandexWrapper fillter " data-tab="google">
+          <a href="" class="btn" id="googleSearch">Поиск</a>
+          <a href="" class="btn" id="googleKMS">КМС</a>
+          <a href="" class="btn" id="googleVideo">ГуглВидео</a>
+        </div>
+        <div class="yandexWrapper fillter " data-tab="smm">
+          <a href="" class="btn" id="vk">Вконтакте</a>
+          <a href="" class="btn" id="ok">Однакласники</a>
+          <a href="" class="btn" id="inst">Инстаграм</a>
+          <a href="" class="btn" id="fb">Фейсбук</a>
+        </div>
+        <div class="utmWrapper">
+          <label for="utm_source"
+            >utm_source
+            <input type="text" id="utm_source" />
+          </label>
+          <label for="utm_medium"
+            >utm_medium
+            <input type="text" id="utm_medium" />
+          </label>
+          <label for="utm_campaign"
+            >utm_campaign
+            <input type="text" id="utm_campaign" />
+          </label>
+          <label for="utm_content" class="no-smm"
+            >utm_content
+            <input type="text" id="utm_content" />
+          </label>
+          <label for="utm_term" class="no-smm1"
+            >utm_term
+            <input type="text" id="utm_term" />
+          </label>
+        </div>
+      </div>
+      <div class="resultWrapper">
+        <p id="result">
+          Готовая ссылка
+        </p>
+        <a href="" class="copy"
+          ><span
+            ><svg
+              width="19"
+              height="22"
+              viewBox="0 0 19 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 0C13.2652 0 13.5196 0.105357 13.7071 0.292893C13.8946 0.48043 14 0.734784 14 1C14 1.26522 13.8946 1.51957 13.7071 1.70711C13.5196 1.89464 13.2652 2 13 2H2V15C2 15.2652 1.89464 15.5196 1.70711 15.7071C1.51957 15.8946 1.26522 16 1 16C0.734784 16 0.48043 15.8946 0.292893 15.7071C0.105357 15.5196 0 15.2652 0 15V2C0 0.9 0.9 0 2 0H13Z"
+                fill="#2B2E4A"
+              />
+              <path
+                d="M6 4H17C17.5304 4 18.0391 4.21071 18.4142 4.58579C18.7893 4.96086 19 5.46957 19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H6C5.46957 22 4.96086 21.7893 4.58579 21.4142C4.21071 21.0391 4 20.5304 4 20V6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4Z"
+                fill="#2B2E4A"
+              />
+            </svg>
+          </span>
+          Скопировать
+          <span class="copyDone"
+            ><img src="img/@2x/ok.png" alt="" width="22px"/></span
+        ></a>
+      </div>
+      <div class="vkcc_wrapper">
+        <p class="vkcc_result" title="Скопировать"></p>
+        <a href="" id="vkcc">Сократить готовую ссылку через vk.cc</a>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/transliteration@2.1.7/dist/browser/bundle.umd.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+  </body>
+</html>
